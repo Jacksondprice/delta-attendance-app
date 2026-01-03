@@ -1,0 +1,11 @@
+services:
+  api:
+    image: ghcr.io/jacksondprice/delta-attendance-app:latest
+    ports: ["8080:8080"]
+    environment:
+      DATABASE_URL: postgresql://deltaattendaadmin:Tn45CaTltbpNwDzzUstgCsTKtmKm@deltaattenda-fv04mi.postgres.database.azure.com:5432/deltaattenda?sslmode=require
+      STRIPE_SECRET_KEY: sk_live_TOyurUUPNz4tFvnRWN2v9FeA5LnjZztYwiqNC0AXoyTOnQGq
+  worker:
+    image: ghcr.io/jacksondprice/delta-attendance-app:latest
+    environment:
+      DATABASE_URL: postgresql://deltaattendaadmin:Tn45CaTltbpNwDzzUstgCsTKtmKm@deltaattenda-fv04mi.postgres.database.azure.com:5432/deltaattenda?sslmode=require
